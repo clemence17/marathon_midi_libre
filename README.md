@@ -16,3 +16,6 @@ Nous fouillerons les données pour obtenir des particularités par région ou ca
 ### 4. Données
 Lien pour les données concernant les catégories socio-professionnelles de 2017 par département et par commune
 https://public.opendatasoft.com/explore/dataset/demographyref-france-pop-active-sexe-activite-departement-millesime/information/?disjunctive.reg_code&disjunctive.dep_code&disjunctive.dep_name&disjunctive.year&disjunctive.reg_name
+
+Lien GitHub pour les fichiers geojson pour les régions, départements et cantons de France
+https://github.com/gregoiredavid/france-geojson
