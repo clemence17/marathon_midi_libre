@@ -26,21 +26,48 @@ ggplot(df, aes(x = vote, fill = candidat)) +
 
 
 library(ggiraph)
+library(plotly)
 df <- read_excel("C:/Users/elmen/OneDrive/Documents/marathon/villes_2.xls")
 df=as.data.frame(df)
-my_gg=ggplot(data = df, aes(x=df[,1],y=df[,2], fill=df[,3])) + geom_col(position="dodge") + ggtitle('histo')+ geom_bar_interactive()        
+#my_gg=ggplot(data = df, aes(x=df[,1],y=df[,2], fill=df[,3])) + geom_col(position="dodge") + ggtitle('histo')+ geom_bar_interactive()        
 #+geom_bar_interactive(aes(x=df[,1],tooltip = paste(df[,1],"décès pour 100 000 naissances")))
-ggiraph(code = print(my_gg))
+#ggiraph(code = print(my_gg))
+
+p <- ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
+  geom_bar(stat="identity", position=position_dodge(), colour="black") +
+  scale_fill_manual(values=c("#00AFBB", "#FC4E07"))
+
+fig <- ggplotly(p)
+
+fig
+
+ggplotly(ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
+  geom_bar(stat="identity", position=position_dodge(), colour="black") +
+  scale_fill_manual(values=c("#00AFBB", "#FC4E07")))
+
+g <- ggplot(df, aes(ville))  
+p <-ggplot(df, aes(x=ville,y = ville)) +
+  geom_bar(stat="identity",aes(fill = candidat), position = position_stack(reverse = TRUE)) +
+  theme(legend.position = "top")
+
+ggplotly(p)
 
 
-g_bar <- ggplot(df, 
-                aes(x = df[,1],
-                    y=df[,2],
-                    tooltip = ville,
-                    fill = candidat,
-                    data_id = candidat)) + geom_col(position="dodge")+
-  geom_bar_interactive()
-ggiraph(code = print(g_bar))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
