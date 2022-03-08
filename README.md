@@ -23,3 +23,7 @@ https://github.com/gregoiredavid/france-geojson
 
 Lien pour la région Occitanie du nombre d'habitants par départements pour 2017/2012
 https://www.insee.fr/fr/statistiques/4269990
+
+Lien pour le taux de pauvreté par région et département 
+
+https://www.insee.fr/fr/statistiques/4507225?sommaire=4507229&q=principaux+indicateurs+sur+les+revenus+et+la+pauvret%C3%A9%20aux+niveaux+national+et+local#consulter
