@@ -14,8 +14,9 @@ Axé sur l'Occitanie, ce dashboard presentera les candidats gagnants. Puis, un h
 Nous fouillerons les données pour obtenir des particularités par région ou canton qui méritent d'être présenté. 
 
 ### 4. Données
-Lien pour les données concernant les catégories socio-professionnelles de 2017 par département et par commune
-https://public.opendatasoft.com/explore/dataset/demographyref-france-pop-active-sexe-activite-departement-millesime/information/?disjunctive.reg_code&disjunctive.dep_code&disjunctive.dep_name&disjunctive.year&disjunctive.reg_name
+Lien pour les données concernant les catégories socio-professionnelles du recenscement 2018 de la population française par département et par commune
+https://www.insee.fr/fr/statistiques/1893185#consulter
+Pour chaque CSP on trouve le nombre de personnes actives ayant déjà eu un emploi entre 25 et 54 ans.
 
 Lien GitHub pour les fichiers geojson pour les régions, départements et cantons de France
 https://github.com/gregoiredavid/france-geojson
