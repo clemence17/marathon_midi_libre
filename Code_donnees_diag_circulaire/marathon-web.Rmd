@@ -1,0 +1,691 @@
+---
+title: "marathonWeb"
+output: html_document
+---
+
+
+
+
+# DEPARTEMENT TOUR 1
+
+
+
+```{r}
+library(ggiraph)
+library(ggplot2)
+library(fpp3)
+```
+
+
+
+
+```{r}
+
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+dep1 <- read.csv2('Presidentielle_Tour_1_dept_clean.csv')
+dep1
+
+
+
+```
+
+
+
+
+
+```{r}
+#AIN
+Ain<- dep1%>%
+  filter(Libellé.du.département=="Ain")
+Ain
+
+######################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+Ain$tooltip <- c(paste0("Nom = ", Ain$Nom, ", Voix = ", Ain$Voix))
+#Ain$tooltip 
+
+
+my_gg<- ggplot(data = Ain, aes(x="",y=Voix, fill=Nom,tooltip=Ain$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+ 
+  
+```
+
+
+
+
+
+
+```{r}
+#HERAULT
+heraut<- dep1%>%
+  filter(Libellé.du.département=="Hérault")
+
+######################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+heraut$tooltip <- c(paste0("Nom = ", heraut$Nom, ", Voix = ", heraut$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = heraut, aes(x="",y=Voix, fill=Nom,tooltip=heraut$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+ 
+```
+
+
+```{r}
+
+#Alpes-de-Haute-Provence
+Alpes<- dep1%>%
+  filter(Libellé.du.département=="Alpes-de-Haute-Provence")
+
+######################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+Alpes$tooltip <- c(paste0("Nom = ", Alpes$Nom, ", Voix = ", Alpes$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = Alpes, aes(x="",y=Voix, fill=Nom,tooltip=Alpes$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+```
+
+
+```{r}
+#Haute-Garonne
+
+
+Garonne<- dep1%>%
+  filter(Libellé.du.département=="Haute-Garonne")
+
+######################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+Garonne$tooltip <- c(paste0("Nom = ", Garonne$Nom, ", Voix = ", Garonne$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = Garonne, aes(x="",y=Voix, fill=Nom,tooltip=Garonne$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+```
+
+```{r}
+#Tarn
+
+
+
+Tarn<- dep1%>%
+  filter(Libellé.du.département=="Tarn")
+
+######################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+Tarn$tooltip <- c(paste0("Nom = ", Tarn$Nom, ", Voix = ", Tarn$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = Tarn, aes(x="",y=Voix, fill=Nom,tooltip=Tarn$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+```
+
+
+```{r}
+
+#Pyrénées-Orientales
+
+
+
+Pyrenees<- dep1%>%
+  filter(Libellé.du.département=="Pyrénées-Orientales")
+
+######################################################
+
+
+
+mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+
+Pyrenees$tooltip <- c(paste0("Nom = ", Pyrenees$Nom, ", Voix = ", Pyrenees$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = Pyrenees, aes(x="",y=Voix, fill=Nom,tooltip=Pyrenees$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+```
+
+
+
+
+
+
+# DEUXIEME TOUR
+```{r}
+
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+dep2 <- read.csv2('Presidentielle_Tour_2_dept_clean.csv')
+dep2
+
+```
+
+
+```{r}
+
+
+
+
+#HERAUT
+heraut<- dep2%>%
+  filter(Libellé.du.département=="Hérault")
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF")
+
+heraut$tooltip <- c(paste0("Nom = ", heraut$Nom, ", Voix = ", heraut$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = heraut, aes(x="",y=Voix, fill=Nom,tooltip=heraut$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+
+```
+
+
+```{r}
+
+#AIN
+Ain<- dep2%>%
+  filter(Libellé.du.département=="Ain")
+Ain
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF")
+
+Ain$tooltip <- c(paste0("Nom = ", Ain$Nom, ", Voix = ", Ain$Voix))
+#Ain$tooltip 
+
+
+my_gg<- ggplot(data = Ain, aes(x="",y=Voix, fill=Nom,tooltip=Ain$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+ 
+  
+```
+
+
+
+
+
+
+```{r}
+#Pyrénées-Orientales
+Pyrenees<- dep2%>%
+  filter(Libellé.du.département=="Pyrénées-Orientales")
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF")
+
+Pyrenees$tooltip <- c(paste0("Nom = ", Pyrenees$Nom, ", Voix = ", Pyrenees$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = heraut, aes(x="",y=Voix, fill=Nom,tooltip=Pyrenees$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+ 
+```
+
+
+
+```{r}
+
+
+#Tarn
+
+
+
+Tarn<- dep2%>%
+  filter(Libellé.du.département=="Tarn")
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF")
+
+Tarn$tooltip <- c(paste0("Nom = ", Tarn$Nom, ", Voix = ", Tarn$Voix))
+#heraut$tooltip 
+
+
+my_gg<- ggplot(data = Tarn, aes(x="",y=Voix, fill=Nom,tooltip=Tarn$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+```
+
+
+
+
+# PRESIDENTIELLE TOUR 2 REGION (ensemble de la région d'Occitanie)
+```{r}
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+reg2 <- read.csv2('Presidentielle_Tour_2_region_clean.csv')
+reg2
+
+
+```
+
+
+```{r}
+
+
+### le nombre de vote sur tout l'Occitanie
+Occitanie<- reg2%>%
+  filter(Libellé.de.la.région=="Occitanie")
+#Occitanie
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF")
+
+Occitanie$tooltip <- c(paste0("Nom = ", Occitanie$Nom, ", Voix = ", Occitanie$Voix))
+#Occitanie$tooltip 
+
+
+my_gg<- ggplot(data = Occitanie, aes(x="",y=Voix, fill=Nom,tooltip=Occitanie$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+
+```
+
+## le nombre de vote bancs sur toute la France au 2eme tour
+
+```{r}
+
+
+
+
+#
+
+#Occitanie<- reg2%>%
+ # filter(Libellé.de.la.région=="Occitanie")
+#Occitanie
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF","#057C85", "#127DB3","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
+
+reg2$tooltip <- c(paste0("Région = ", reg2$Libellé.de.la.région, ", Vote blancs = ",reg2$Blancs))
+#Occitanie$tooltip 
+
+
+my_gg<- ggplot(data = reg2, aes(x="",y=Blancs, fill=Libellé.de.la.région,tooltip=reg2$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") +
+  coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+```
+
+
+# le nombre de vote blancs à l'interieur de l'occitanie au 2eme tour (les départements)
+
+```{r}
+dep2
+
+
+```
+
+
+```{r}
+
+```
+
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
