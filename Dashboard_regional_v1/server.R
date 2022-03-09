@@ -20,7 +20,7 @@ df=as.data.frame(df)
 dep1 <- read.csv2('C:/Users/elmen/OneDrive/Documents/github/marathon/Code_donnees_diag_circulaire/Presidentielle_Tour_1_dept_clean.csv')
 heraut <- 
   dep1%>%filter(Libelle=="Herault")
-mycols <- c("#CE1719", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#051237", "#2ABAFF", "#DE313D", "#C0081F")
+mycols <- c("#D86473", "#057C85", "#FFCB05", "#127DB3", "#0E4D7C", "#C41424", "#034EA1", "#051237", "#2ABAFF", "#A4061A", "#87B2BC")
 
 heraut$tooltip <- c(paste0("Nom = ", heraut$Nom, ", Voix = ", heraut$Voix))
 
@@ -35,20 +35,20 @@ my_gg<- ggplot(data = heraut, aes(x="",y=Voix, fill=Nom,tooltip=tooltip)) +
 shinyServer(function(input, output) {
   output$distPlot <- renderPlotly({
     
-      ggplotly(ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
+    ggplotly(ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
                geom_bar(stat="identity", position=position_dodge(), colour="black") +
-               scale_fill_manual(values=c("#142236", "#FC4E07")))
-
+               scale_fill_manual(values=c("#051237", "#2ABAFF")))
+    
     
   })
   
   
-
+  
   
   output$Diagr <- renderggiraph({
     ggiraph(code = print(my_gg), selection_type = "multiple")
-  
-
+    
+    
   })
   
 })

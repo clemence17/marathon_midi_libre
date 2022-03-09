@@ -23,7 +23,7 @@ library(fpp3)
 
 
 setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
-dep1 <- read.csv2('Presidentielle_Tour_1_dept_clean.csv')
+dep1 <- read.csv2('C:/Users/elmen/OneDrive/Documents/github/marathon/Code_donnees_diag_circulaire/Presidentielle_Tour_1_dept_clean.csv')
 dep1
 
 
