@@ -11,34 +11,41 @@ library(shiny)
 library(ggiraph)
 library(plotly)
 library(shinydashboard)
-# Define UI for application that draws a histogram
+library(shinyWidgets)
+# Define UI for application that draws a histogram c("#142236", "#E61D23")
 
 
 shinyUI(fluidPage(
   
-  responsive =FALSE, 
-  dashboardPage(
-    dashboardHeader(title="Dashobard regional"),
-    dashboardSidebar(),
-    dashboardBody(  sidebarLayout(
-      
-      sidebarPanel(
-      ),
-      
-      mainPanel(
-        tabsetPanel(
-          #tabPanel("Tour1", plotlyOutput("distPlot")),
-          tabPanel("Tour2", plotlyOutput("distPlot"))
-          
-        )
-      )  
-    )),
-    skin="red"
+  
+  shinyUI(fluidPage(
+    setBackgroundColor(
+      color = "#ecf0f5",
+      gradient = "radial",
+      direction = c("top", "left")
     ),
-  
-  
+    
+    titlePanel(h1("Dashobard regional",
+                  style={'color: white;
+                        background-color:#142236;
+                        margin-left: -15px;
+                        margin-right: -15px;
+                        padding-left: 205px;'})
+    ),
+    
+ 
+    sidebarLayout(
+      sidebarPanel(
+        selectInput("tour", "Tour",
+                    choices = list("Tour 1" = "topleft", "Tour 2" = "topright"))
+      ),
+      mainPanel(
+        plotlyOutput("distPlot")    
+      )
+    )
+  )
+  )
 
-  
 )
 )
 
