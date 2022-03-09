@@ -19,9 +19,7 @@ df=as.data.frame(df)
 shinyServer(function(input, output) {
   output$distPlot <- renderPlotly({
     
-    
-    #ggplot(data = df, aes(x=df[,1],y=df[,2], fill=df[,3])) + geom_col(position="dodge") + ggtitle('histo')
-    ggplotly(ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
+      ggplotly(ggplot(data=df, aes(x=ville, y=vote, fill=candidat)) +
                geom_bar(stat="identity", position=position_dodge(), colour="black") +
                scale_fill_manual(values=c("#142236", "#FC4E07")))
 
