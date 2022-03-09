@@ -8,22 +8,37 @@
 #
 
 library(shiny)
-
+library(ggiraph)
+library(plotly)
+library(shinydashboard)
 # Define UI for application that draws a histogram
+
+
 shinyUI(fluidPage(
-
-    # Application title
-    titlePanel("Dashobard regional"),
-
-    # Sidebar with a slider input for number of bins
-    sidebarLayout(
+  
+  responsive =FALSE, 
+  dashboardPage(
+    dashboardHeader(title="Dashobard regional"),
+    dashboardSidebar(),
+    dashboardBody(  sidebarLayout(
+      
       sidebarPanel(
-        
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-          plotlyOutput("distPlot")
+      ),
+      
+      mainPanel(
+        tabsetPanel(
+          #tabPanel("Tour1", plotlyOutput("distPlot")),
+          tabPanel("Tour2", plotlyOutput("distPlot"))
+          
         )
-    )
-))
+      )  
+    )),
+    skin="red"
+    ),
+  
+  
+
+  
+)
+)
+
