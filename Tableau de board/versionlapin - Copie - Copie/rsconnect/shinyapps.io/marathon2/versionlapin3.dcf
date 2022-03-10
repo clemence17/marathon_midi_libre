@@ -1,0 +1,13 @@
+name: versionlapin3
+title: versionlapin3
+username:
+account: marathon2
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5825447
+bundleId: 5667321
+url: https://marathon2.shinyapps.io/versionlapin3/
+when: 1646932515.01632
+lastSyncTime: 1646932515.01632
+asMultiple: FALSE
+asStatic: FALSE
