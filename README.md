@@ -1,5 +1,8 @@
 # Marathon du web
 
+## Lien 
+Vers le site web : https://elections-midilibre.coleebri.com/
+
 ## Plan 
 3 dashboards ont été réalisés au cours de ce Marathon du web.
 
@@ -12,7 +15,7 @@ Un bouton fait un focus sur la région d'Occitanie en visualisant les résultats
 ### 2. Dashboard : Pourcentage de voix sur le nombre de votes totaux par département
 Il s'agit de 4 choroplèthes (cartes régionales) visualisant le pourcentage de voix sur le nombre de votes totaux par département pour le premier tour de 4 candidats : Emmanuel Macron, Marine Le Pen, Jean-Luc Mélenchon et François Fillon. De plus, deux autres choroplètes visualisent les résultats au niveau de la région Occitanie des 2 candidats ayant remporté le premier tour.
 
-### 3. Dashboard 
+### 3. Dashboard abstention/ vote nul
 Le troisième dashboard est constitué de plusieurs graphiques : deux choroplèthes sont affichés et concernent le taux d'abstention par rapport au nombre d'inscrits pour la région Occitanie du premier et second tour. Un survol des départements fait obtenir des informations supplémentaires avec des infos bulles. Puis, un histogramme met en évidence le taux d'abstention pour les plus grandes villes d'Occitanie parmi Béziers, Perpignan, Nîmes, Montpellier et Toulouse. Un clic sur les barres permet de connaitre le taux d'abstention parmi les inscrits.
 Un bouton affiche le taux de votes blancs pour le premier et second tour grâce aux deux choropléthes. Enfin, un histogramme met en exergue le taux de votes blancs pour les plus grandes villes d'Occitanie.
 
