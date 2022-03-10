@@ -23,7 +23,7 @@ library(fpp3)
 
 
 setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
-dep1 <- read.csv2('C:/Users/elmen/OneDrive/Documents/github/marathon/Code_donnees_diag_circulaire/Presidentielle_Tour_1_dept_clean.csv')
+dep1 <- read.csv2('Presidentielle_Tour_1_dept_clean.csv')
 dep1
 
 
@@ -88,8 +88,8 @@ heraut$tooltip <- c(paste0("Nom = ", heraut$Nom, ", Voix = ", heraut$Voix))
 my_gg<- ggplot(data = heraut, aes(x="",y=Voix, fill=Nom,tooltip=heraut$tooltip)) +
   geom_bar_interactive(width=1, stat="identity") +
   coord_polar("y", start=0)+
-  scale_fill_manual(values = mycols) +
-  theme_void()
+  scale_fill_manual(values = mycols) 
+  #theme_void()+
 
 
 #Css de l'infobulle
@@ -427,34 +427,35 @@ ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:wh
 
 ```
 
-## le nombre de vote bancs sur toute la France au 2eme tour
+## le nombre de vote bancs POUR LES 5 PLUS GRANDES REGIONS  la France au 2eme tour
 
 ```{r}
 
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+reg_5 <- read.csv2('Tour_2_5_region_clean.csv')
+reg_5
 
 
 
-#
-
-#Occitanie<- reg2%>%
- # filter(Libellé.de.la.région=="Occitanie")
-#Occitanie
 
 ######################
 
 
 
-mycols <- c("#051237", "#2ABAFF","#057C85", "#127DB3","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
+mycols <- c("#051237", "#2ABAFF","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
 
-reg2$tooltip <- c(paste0("Région = ", reg2$Libellé.de.la.région, ", Vote blancs = ",reg2$Blancs))
-#Occitanie$tooltip 
+reg_5$tooltip <- c(paste0("Région = ", reg_5$Libellé.de.la.région, ", % de Vote blancs = ",reg_5$Blancs_Ins))
 
 
-my_gg<- ggplot(data = reg2, aes(x="",y=Blancs, fill=Libellé.de.la.région,tooltip=reg2$tooltip)) +
-  geom_bar_interactive(width=1, stat="identity") +
-  coord_polar("y", start=0)+
-  scale_fill_manual(values = mycols) +
-  theme_void()
+
+my_gg<- ggplot(data = reg_5, aes(x=Libellé.de.la.région,y=Blancs_Ins, fill=Libellé.de.la.région,tooltip=reg_5$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") + xlab("Région")+ylab("% de Votes Blancs par rapport aux inscrits")+theme(
+  axis.title.x = element_text(size = 12, face = "bold"),
+  axis.title.y = element_text(size = 12, face = "bold")
+)+
+ # coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols)+labs(fill = "Région")
+ # theme_void()
 
 
 #Css de l'infobulle
@@ -465,20 +466,143 @@ ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:wh
 ```
 
 
-# le nombre de vote blancs à l'interieur de l'occitanie au 2eme tour (les départements)
+## le nombre de vote bancs POUR LES 5 PLUS GRANDES département de occitanie au 2eme tour
 
 ```{r}
-dep2
+
+
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+dep_5 <- read.csv2('Tour_2_5_dep_clean.csv')
+dep_5
+
+
+
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
+
+dep_5$tooltip <- c(paste0("Département = ", dep_5$Libellé.du.département, ", Vote blancs = ",dep_5$Blancs_Ins))
+
+
+
+my_gg<- ggplot(data = dep_5, aes(x=Libellé.du.département,y=Blancs_Ins, fill=Libellé.du.département,tooltip=dep_5$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") + xlab("Département")+ylab("% Votes Blancs par rapport aux inscrits ")+theme(
+  axis.title.x = element_text(size = 12, face = "bold"),
+  axis.title.y = element_text(size = 12, face = "bold")
+)+
+ # coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols)+labs(fill = "Département")
+  #theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
 
 
 ```
 
 
+
+
+
+
+
+
+
+
+## le nombre de vote nuls POUR LES 5 PLUS GRANDES département de occitanie au 2eme tour
+
 ```{r}
+
+
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+dep_5 <- read.csv2('Tour_2_5_dep_clean.csv')
+dep_5
+
+
+
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
+
+dep_5$tooltip <- c(paste0("Département = ", dep_5$Libellé.du.département, ", Vote Nuls_Ins = ",dep_5$Nuls_Ins))
+
+
+
+my_gg<- ggplot(data = dep_5, aes(x=Libellé.du.département,y=Nuls_Ins, fill=Libellé.du.département,tooltip=dep_5$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") + xlab("Département")+ylab("% Votes Nuls par rapport aux inscrits")+theme(
+  axis.title.x = element_text(size = 12, face = "bold"),
+  axis.title.y = element_text(size = 12, face = "bold")
+)+
+ # coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols)+labs(fill = "Département")
+  #theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
 
 ```
 
 
+
+
+
+
+
+## le nombre d'Abstentions(par rapport aux nombre inscrits) POUR LES 5 PLUS GRANDES département de occitanie au 2eme tour
+
+```{r}
+
+
+
+setwd("~/a_M1 MIASHS/MARATHON-WEB/Rshiny")
+dep_5 <- read.csv2('Tour_2_5_dep_clean.csv')
+dep_5
+
+
+
+
+######################
+
+
+
+mycols <- c("#051237", "#2ABAFF","#FFCB05", "#127DB3", "#0E4D7C", "#E62154", "#034EA1", "#6FE30E", "#E30ECE", "#DE313D", "#C0081F","#0EDBE3","#2ABAFF", "#DE313D", "#C0081F","#FFCB05")
+
+dep_5$tooltip <- c(paste0("Département = ", dep_5$Libellé.du.département, ", Abstentions = ",dep_5$Abs_Ins))
+
+
+
+my_gg<- ggplot(data = dep_5, aes(x=Libellé.du.département,y=Abs_Ins, fill=Libellé.du.département,tooltip=dep_5$tooltip)) +
+  geom_bar_interactive(width=1, stat="identity") + xlab("Département")+ylab("% Abstentions par rapport aux inscrits")+theme(
+  axis.title.x = element_text(size = 12, face = "bold"),
+  axis.title.y = element_text(size = 12, face = "bold")
+)+
+ # coord_polar("y", start=0)+
+  scale_fill_manual(values = mycols)+labs(fill = "Département")
+  #theme_void()
+
+
+#Css de l'infobulle
+
+ggiraph(code = print(my_gg), tooltip_extra_css = "background-color:gray;color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px;",
+        tooltip_opacity = 1)
+
+
+```
 
 ```{r}
 ```
