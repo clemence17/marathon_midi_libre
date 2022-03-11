@@ -2,7 +2,9 @@
 title: "Analyses Corrélation et graphiques" 
 author: "Cynthia"
 date: "09/03/2022"
-output: html_document
+output: 
+  pdf_document: 
+    number_sections: yes
 ---
 
 ## Installation des packages
@@ -14,11 +16,10 @@ library(plotly)
 ```
 
 # R Markdown
+
 # Analyses du pourcentage d'abstentions aux élections présidentielles de 2017 Premier Tour
 
 Graphique réalisé pour l'élection présidentielle 2017 du Tour 1. Il représente le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits pour les départements d'Occitanie.
-
-  
 
 ```{r }
 data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
@@ -31,7 +32,6 @@ summary(data)
 ```
 
 # Analyses Corrélation linéaire et non linéaire
-
 
 ## Réalisation du test de corrélation de pearson (linéaire)
 
@@ -49,9 +49,10 @@ cor.test(data$Tx_pauvrete, data$X..Abs.Ins, method = "spearman", alternative = "
 #la corrélation est positive (r=.71) et elle est significative p<.01.
 ```
 
-
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
   geom_point(size=6)+
@@ -63,7 +64,7 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
 
 D'après les graphiques, plus le taux de pauvreté du département est élevé, plus les votants du départements se sont abstenus lors des élections présidentielles du premier tour. Il existe donc une corrélation positive entre le taux de pauvreté selon le département et le pourcentage d'abstention aux élections de 2017 pour le premier tour.
 
-## Autre visualisation  
+## Autre visualisation
 
 Les graphiques permettent de visualiser le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits et ceci pour les départements d'Occitanie de l'élection présidentielle du Tour 1.
 
@@ -88,16 +89,14 @@ ggplot(data=data, aes(x=Cod_dept, y=Tx, fill=variables)) +
   scale_fill_brewer(palette="Paired")+
   theme_minimal()
 ```
+
 Le département d'Haute-Garonne a un taux de pauvreté faible alors que le pourcentage d'abstention est très élevé. Il est possible de constater une corrélation positive entre le taux de pauvreté et le pourcentage d'abstention.
 
 Pour le département du Gard, il semble avoir un taux de pauvreté élevé avec un taux d'abstention également élevé.
 
-
 # Analyses du pourcentage de votes blancs aux élections présidentielles de 2017
 
 Graphique réalisé pour l'élection présidentielle 2017 du Tour 1. Il représente le taux de pauvreté et pourcentage de votes blancs sur le nombre d'inscrits pour les départements d'Occitanie.
-
-  
 
 ```{r }
 data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
@@ -114,7 +113,6 @@ summary(data)
 
 ```
 
-
 ## Réalisation du test de corrélation de pearson (linéaire)
 
 ```{r}
@@ -129,9 +127,10 @@ cor.test(data$Tx_pauvrete, data$X..Blancs, method = "spearman", alternative = "g
 #la corrélation est négative (r=-.45) et elle n'est pas significative p > 1.
 ```
 
-
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
   geom_point(size=6)+
@@ -143,9 +142,16 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
 
 D'après les graphiques, plus le taux de pauvreté du département est élevé, moins les votants blancs du départements étaient nombreux lors des élections présidentielles du premier tour. Mais, là encore, le département de l'Haute-Garonne fait exception à la règle, avec un taux de pauvreté de 13, 1.3 % de votants sur les inscrits votent blancs.
 
-## Autre visualisation  
+## Autre visualisation
 
 Les graphiques permettent de visualiser le taux de pauvreté et pourcentage de votes blancs sur le nombre d'inscrits et ceci pour les départements d'Occitanie de l'élection présidentielle du Tour 1.
+
+```{r }
+data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
+summary(data)
+
+
+```
 
 ```{r }
 
@@ -158,11 +164,9 @@ ggplot(data=data, aes(x=Cod_dept, y=Tx, fill=variables)) +
   theme_minimal()
 ```
 
-
 # Analyses du pourcentage d'abstentions aux élections présidentielles de 2017 Second Tour
 
-Graphique réalisé pour l'élection présidentielle 2017 du Tour 2. Il représente le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits pour les départements d'Occitanie.
-Le fichier à charger se trouve dans la feuille pauvrete dept (3) du fichier excel pauvrete dept.
+Graphique réalisé pour l'élection présidentielle 2017 du Tour 2. Il représente le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits pour les départements d'Occitanie. Le fichier à charger se trouve dans la feuille pauvrete dept (3) du fichier excel pauvrete dept.
 
 ```{r }
 data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
@@ -179,7 +183,6 @@ summary(data)
 
 ```
 
-
 ## Réalisation du test de corrélation de pearson (linéaire)
 
 ```{r}
@@ -195,9 +198,10 @@ cor.test(data$Tx_pauvrete, data$X..Abs.Ins, method = "spearman", alternative = "
 #la corrélation est positive r = .50 et significative p = .039
 ```
 
-
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
   geom_point(size=6)+
@@ -209,7 +213,7 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
 
 D'après les graphiques, plus le taux de pauvreté du département est élevé, plus les votants du départements se sont abstenus lors des élections présidentielles du second tour. Il semblerait qu'il y ait la présence d'un outlier.
 
-## Autre visualisation  
+## Autre visualisation
 
 Les graphiques permettent de visualiser le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits et ceci pour les départements d'Occitanie de l'élection présidentielle du Tour 2.
 
@@ -230,13 +234,12 @@ ggplot(data=data, aes(x=Cod_dept, y=Tx, fill=variables)) +
   scale_fill_brewer(palette="Paired")+
   theme_minimal()
 ```
-Les résultats du pourcentage d'abstention semblent plus élevés que lors du premier tour. Nous pouvons remarquer que plus le taux de pauvreté est élevé, plus le taux d'abstention est élevé ceci à l'exception du département de l'Haute-Garonne avec un faible taux de pauvreté, celle-ci compte parmi les départements avec le pourcentage d'abstention élevé. Avec un taux de pauvreté élevé, le Gard compte parmi les départements avec le taux d'abstention le plus élevé (confirmant ainsi les doutes/attendus des commanditaires).
 
+Les résultats du pourcentage d'abstention semblent plus élevés que lors du premier tour. Nous pouvons remarquer que plus le taux de pauvreté est élevé, plus le taux d'abstention est élevé ceci à l'exception du département de l'Haute-Garonne avec un faible taux de pauvreté, celle-ci compte parmi les départements avec le pourcentage d'abstention élevé. Avec un taux de pauvreté élevé, le Gard compte parmi les départements avec le taux d'abstention le plus élevé (confirmant ainsi les doutes/attendus des commanditaires).
 
 # Analyses du pourcentage de votes blancs aux élections présidentielles de 2017
 
 Graphique réalisé pour l'élection présidentielle 2017 du Tour 2. Il représente le taux de pauvreté et pourcentage de votes blancs sur le nombre d'inscrits pour les départements d'Occitanie.
-
 
 ## Analyses Corrélation linéaire et non linéaire
 
@@ -246,24 +249,24 @@ summary(data)
 
 ```
 
-
 ## Réalisation du test de corrélation de pearson (linéaire)
 
 ```{r}
 cor.test(data$Tx_pauvrete, data$X..Blancs, method = "pearson", alternative = "g")
-#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs est négative (r=.45) mais n'est cependant pas significative.
+#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs est négative (r=-.27) mais n'est cependant pas significative.
 ```
 
 ## Réalisation du test de corrélation de spearman (non linéaire)
 
 ```{r}
 cor.test(data$Tx_pauvrete, data$X..Blancs, method = "spearman", alternative = "g")
-#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs est négative (r=.45) mais n'est cependant pas significative.
+#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs est négative (r=-.22) mais n'est cependant pas significative.
 ```
 
-
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
   geom_point(size=6)+
@@ -273,9 +276,9 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
 
 ```
 
-D'après les graphiques, plus le taux de pauvreté du département est élevé, plus les votants blancs du départements étaient nombreux lors des élections présidentielles du second tour.
+D'après les graphiques, plus le taux de pauvreté du département est élevé, moins les votants blancs du départements étaient nombreux lors des élections présidentielles du second tour.
 
-## Autre visualisation  
+## Autre visualisation
 
 Les graphiques permettent de visualiser le taux de pauvreté et pourcentage d'abstention sur le nombre d'inscrits et ceci pour les départements d'Occitanie de l'élection présidentielle du Tour 2.
 
@@ -295,15 +298,12 @@ ggplot(data=data, aes(x=Cod_dept, y=Tx, fill=variables)) +
   scale_fill_brewer(palette="Paired")+
   theme_minimal()
 ```
+
 Le département de l'Haute-Garonne semble avoir des résultats "particuliers" car avec un taux de pauvreté parmi les plus faibles, ils obtiennent des pourcentages de votes blancs parmi les inscrits très élevés. Il en est de même pour l'Aveyron.
-
-
-
 
 # Analyses du pourcentage de votes blancs aux élections présidentielles de 2017 au niveau nationale
 
 Graphique réalisé pour l'élection présidentielle 2017 du Tour 2. Il représente le taux de pauvreté et pourcentage de votes blancs sur le nombre d'inscrits pour les départements de France.
-
 
 ## Analyses Corrélation linéaire et non linéaire
 
@@ -313,19 +313,22 @@ summary(data)
 
 ```
 
-
 ## Réalisation du test de corrélation de pearson (linéaire)
 
 ```{r}
 cor.test(data$Tx_pauvrete, data$X..Abs.Ins, method = "pearson", alternative = "g")
 #la corrélation entre le taux de pauvreté et le pourcentage de votes blancs abstentions parmi les inscrits est négative (r=.68), la différence est très significative p<.001.
 ```
+
 ```{r}
 cor.test(data$Tx_pauvrete, data$X..Abs.Ins, method = "spearman", alternative = "g")
-#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs abstentions parmi les inscrits est négative (r=.44), la différence est très significative p<.001.
-``` 
+#la corrélation entre le taux de pauvreté et le pourcentage de votes blancs abstentions parmi les inscrits est positive (r=.44), la différence est très significative p<.001.
+```
+
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
   geom_point(size=6)+
@@ -335,8 +338,8 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Abs.Ins)) +
 
 ```
 
-
 #Analyse pour les votes blancs et le taux de pauvreté pour tous les départements de France
+
 ```{r}
 data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
 summary(data)
@@ -344,7 +347,9 @@ summary(data)
 ```
 
 # Visualisation
+
 ## Simple Visualisation
+
 ```{r}
 ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
   geom_point(size=6)+
@@ -353,7 +358,6 @@ ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
   ylab("Pourcentage votes blancs sur les inscrits")
 
 ```
-
 
 ```{r}
 cor.test(data$Tx_pauvrete, data$X..Blancs, method = "pearson", alternative = "g")
@@ -367,4 +371,63 @@ cor.test(data$Tx_pauvrete, data$X..Blancs, method = "spearman", alternative = "g
 #Il y a absence de corrélation entre le taux de pauvreté et le pourcentage de votes blancs (r=-.17) et n'est cependant pas significative pour tous les départements de France.
 ```
 
+#Analyse pour les votes blancs et le taux de pauvreté pour tous les départements de France
 
+```{r}
+data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
+summary(data)
+
+```
+
+# Visualisation
+
+## Simple Visualisation
+
+```{r}
+ggplot(data=data, aes(x=Tx_pauvrete, y=X..Blancs)) +
+  geom_point(size=6)+
+  ggtitle("Taux de pauvreté en fonction du pourcentage votes blancs sur le nombre d'inscrits pour les départements de France pour le Tour 2")+
+  xlab("Taux de pauvreté")+
+  ylab("Pourcentage votes blancs sur les inscrits")
+
+```
+
+```{r}
+cor.test(data$Tx_pauvrete, data$X..Blancs, method = "pearson", alternative = "g")
+#Il y a absence de corrélation entre le taux de pauvreté et le pourcentage de votes blancs (r=-.39) et n'est cependant pas significative pour tous les départements de France p=1.
+```
+
+## Réalisation du test de corrélation de spearman (non linéaire)
+
+```{r}
+cor.test(data$Tx_pauvrete, data$X..Blancs, method = "spearman", alternative = "g")
+#Il y a absence de corrélation entre le taux de pauvreté et le pourcentage de votes blancs (r=-.17) et n'est cependant pas significative pour tous les départements de France.
+
+```
+
+## Réalisation d'une ANOVA pour tester la différence entre le % de votes blancs en fonction du tour de l'élection
+
+```{r}
+data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
+summary(data)
+```
+
+```{r}
+
+model<-lm(X.Blancs~Tour,data=data)
+anova(model)
+
+#L'ANOVA réalisé montre le % de votes blancs est significativement influencé par le tour. Le second tour présente un taux de votes blancs significativement plus élevé que pour le premier tour p<.001.
+```
+
+## Réalisation de test de Student pour tester la différence entre le % de votes blancs en fonction du tour de l'élection pour les départements
+
+```{r}
+data<-read.delim(file("clipboard"), header = TRUE, sep = "\t", quote = "\"", dec = ",", fill = TRUE)
+summary(data)
+```
+
+```{r}
+t.test(data$Tour1,data$Tour2)
+#Le test de Student montre une différence significative entre le % de votes blancs entre le premier et le second tour. Le second tour présente un taux de votes blancs significativement plus élevé que pour le premier tour p<.001.
+```
